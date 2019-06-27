@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createProject } from '../../Store/Action/MenuActions'
+import { createProject } from '../../Store/Action/MenuActions';
+import { Redirect } from 'react-router-dom'
+
 
 class CreateMenu extends Component {
     state = {
@@ -20,6 +22,8 @@ class CreateMenu extends Component {
         console.log('state ===>', this.state)
     }
     render() {
+        const { auth } = this.props;
+        if(!auth.uid) return <Redirect to='/signin' />
         return (
             <div className="container">
                 <div className="white form">
@@ -41,9 +45,15 @@ class CreateMenu extends Component {
     }
 };
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createProject: (menu) => dispatch(createProject(menu))
     }
 }
-export default connect(null, mapDispatchToProps)(CreateMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateMenu)

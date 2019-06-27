@@ -10,6 +10,9 @@ const menuReducer = (state = initState, action) => {
       case 'CREATE_MENU':
         console.log('created menu', action.menu);
         return state;
+      case 'CREATE_MENU_ERROR':
+        console.log('create err', action.err )
+        return state;
       default:
         return state;
     }

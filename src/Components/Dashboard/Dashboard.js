@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import Notifications from './Notifications';
 import MenuList from '../Menus/MenuList';
 import { connect } from  'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 class Dashboard extends Component {
     render() {
-        // console.log("Props",this.props)
-        const {menus} = this.props;
+        console.log("Dashboard Props",this.props)
+        const { menus, auth} = this.props;
+        if(!auth.uid) return <Redirect to='/signin' />
 
         return (
             <div className="dashboard container">
@@ -24,9 +28,16 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) =>{
+    console.log("mapStateToProps",state)
     return {
-        menus: state.menu.menus
+        menus: state.firestore.ordered.menus,
+        auth: state.firebase.auth
     }
 
 }
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'menus' }
+    ])
+)(Dashboard);

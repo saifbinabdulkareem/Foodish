@@ -1,12 +1,15 @@
 import React from 'react';
 import ProjectSummary from './MenuSummary';
+import { Link } from 'react-router-dom'
 
 const MenuList = ({menus}) => {
     return (
         <div className="menu-list section">
             {menus && menus.map(menu => {
                 return (
-                    <ProjectSummary menu={menu} key={menu.id} />
+                    <Link to={'/menu/' + menu.id}>
+                    <ProjectSummary menu={menu} />
+                    </Link>
                 )
             })}
         </div>

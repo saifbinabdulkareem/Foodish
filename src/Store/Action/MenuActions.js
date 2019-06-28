@@ -4,9 +4,6 @@ export const createProject = (menu) => {
         const firestore = getFirestore();
         firestore.collection('menus').add({
             ...menu,
-            menuTitle: "Desi Vegg",
-            menuContent: "Biryani",
-            menuId: 13577,
             createdAt: new Date()
 
         }).then(() => {

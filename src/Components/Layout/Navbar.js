@@ -7,9 +7,9 @@ import Dashboard from '../Dashboard/Dashboard';
 
 
 const Navbar = (props) => {
-    const { auth } = props;
+    const { auth, profile } = props;
     console.log("navabr auth===> success",auth)
-    const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+    const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
     return (
         <nav className="nav-wrapper red darken-3">
             <div className="container">
@@ -23,7 +23,8 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => {
     console.log("Navbar ===>",state);
     return {
-        auth : state.firebase.auth
+        auth : state.firebase.auth,
+        profile: state.firebase.profile
     }
 }
 

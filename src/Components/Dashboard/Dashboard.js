@@ -35,9 +35,10 @@ const mapStateToProps = (state) =>{
     }
 
 }
-// compose(
-export default connect(mapStateToProps)(Dashboard);
-    // firestoreConnect([
-    //     { collection: 'menus' }
-    // ])
-// )
+
+export default compose( 
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'menus' }
+    ])
+)(Dashboard);

@@ -6,6 +6,7 @@ import MenuDetails from './Components/Menus/MenuDetails';
 import SignIn from './Components/Auth/SignIn';
 import SignUp from './Components/Auth/SignUp';
 import CreateMenu from './Components/Menus/CreateMenu';
+import RSignUp from './Components/Auth/RSignUp';
 
 class App extends Component {
   render() {
@@ -14,10 +15,11 @@ class App extends Component {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" component={Dashboard} />
         <Route path="/menu/:id" component={MenuDetails} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/rsignup" component={RSignUp} />
         <Route path="/create" component={CreateMenu} />
       </Switch>
     </div>

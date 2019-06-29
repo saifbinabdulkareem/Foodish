@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProjectSummary = ({menu}) => {
+const MenuSummary = ({menu}) => {
     return (
         <div className="card z-depth-0 menu-summary">
             <div className="card-content grey-text text-darken-3">
@@ -12,4 +12,4 @@ const ProjectSummary = ({menu}) => {
     )
 }
 
-export default ProjectSummary;
+export default MenuSummary;

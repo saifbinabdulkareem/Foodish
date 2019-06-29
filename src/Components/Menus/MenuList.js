@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectSummary from './MenuSummary';
+import MenuSummary from './MenuSummary';
 import { Link } from 'react-router-dom'
 
 const MenuList = ({menus}) => {
@@ -8,7 +8,7 @@ const MenuList = ({menus}) => {
             {menus && menus.map(menu => {
                 return (
                     <Link to={'/menu/' + menu.id}>
-                    <ProjectSummary menu={menu} />
+                    <MenuSummary menu={menu} />
                     </Link>
                 )
             })}

@@ -5,17 +5,17 @@ const initState = {
         {id: '3', title: 'Tikka biryani', content: 'Biryani' }
     ]
 }
-const menuReducer = (state = initState, action) => {
+const MenuReducer = (state = initState, action) => {
     switch (action.type) {
       case 'CREATE_MENU':
         console.log('created menu', action.menu);
         return state;
       case 'CREATE_MENU_ERROR':
-        console.log('create err', action.err )
+        console.log('create menu err', action.err )
         return state;
       default:
         return state;
     }
   };
 
-export default menuReducer; 
+export default MenuReducer; 

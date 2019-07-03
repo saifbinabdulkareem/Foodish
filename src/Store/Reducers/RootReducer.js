@@ -11,6 +11,6 @@ const rootReducer = combineReducers({
     firestore: firestoreReducer,
     firebase: firebaseReducer
 })
-console.log("Root reducer",rootReducer)
+// console.log("Root reducer",rootReducer)
 
 export default rootReducer;

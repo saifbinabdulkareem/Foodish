@@ -49,26 +49,26 @@ export const signUp = (newUser)=> {
         })
     }
 }
-// export const rSignUp = (rUser)=> {
-//     return (dispatch, getState, { getFirebase, getFirestore}) => {
-//         const firebase = getFirebase();
-//         const firestore = getFirestore();
+export const rSignUp = (rUser)=> {
+    return (dispatch, getState, { getFirebase, getFirestore}) => {
+        const firebase = getFirebase();
+        const firestore = getFirestore();
 
-//         firebase.auth().createUserWithEmailAndPassword(
-//             rUser.email,
-//             rUser.password
-//             ).then((resp)=> {
-//             return firestore.collection('rUser').doc(resp.user.uid).set({
-//                 fullName: rUser.fullName,
-//                 // email: rUser.email,
-//                 // country: rUser.age,
-//                 // city: rUser.city,
-//                 initials: rUser.fullName[0]
-//             })
-//         }).then(()=> {
-//             dispatch({ type: 'SIGNUP_SUCCESSFULLY' })
-//         }).catch(err => {
-//             dispatch({ type: 'SIGNUP_ERROR', err})
-//         })
-//     }
-// }
+        firebase.auth().createUserWithEmailAndPassword(
+            rUser.email,
+            rUser.password
+            ).then((resp)=> {
+            return firestore.collection('rUser').doc(resp.user.uid).set({
+                fullName: rUser.fullName,
+                // email: rUser.email,
+                // country: rUser.age,
+                // city: rUser.city,
+                initials: rUser.fullName[0]
+            })
+        }).then(()=> {
+            dispatch({ type: 'SIGNUP_SUCCESSFULLY' })
+        }).catch(err => {
+            dispatch({ type: 'SIGNUP_ERROR', err})
+        })
+    }
+}
